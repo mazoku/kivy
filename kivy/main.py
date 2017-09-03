@@ -13,13 +13,14 @@ class AddLocationForm(BoxLayout):
     # owm = pyowm.OWM('d1e7a3acedbc6be7d78ded4620e2943b')
 
     def search_location(self):
+        # TODO: najit jmeno mesta ve velkem jsonu
+        # TODO: misto jmena mozna pouzit ID: api.openweathermap.org/data/2.5/weather?id=524901&APPID=1111111111
         # Get URL From Weather API + Input
-        # appid = 'd1e7a3acedbc6be7d78ded4620e2943b'
-        appid = '1f1c2a63344aa4f32bdeaf75aa7149a5'
-        # search_template = "http://api.openweathermap.org/data/2.5/forecast/daily?APPID='{}'&q=".format(appid) + "{}"
-        search_template = "http://api.openweathermap.org/data/2.5/forecast/daily?APPID='{}'&q=".format(appid) + "{}"
+        appid = 'd1e7a3acedbc6be7d78ded4620e2943b'
+        search_template = "http://api.openweathermap.org/data/2.5/weather?q={}&APPID={}"
         # search_template = "http://api.openweathermap.org/data/2.5/" + "find?q={}&type=like"
-        search_url = search_template.format(self.search_input.text)
+        # search_url = search_template.format(self.search_input.text)
+        search_url = search_template.format('London,uk', appid)
 
         urlresults = (requests.get(search_url)).text
 
