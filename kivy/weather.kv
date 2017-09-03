@@ -3,6 +3,7 @@ AddLocationForm:
 <AddLocationForm>:
     orientation: "vertical"
     search_input: search_box  # Kivy property: id
+    search_results: search_results_list
 
     BoxLayout:
         height: "40dp"
@@ -12,10 +13,10 @@ AddLocationForm:
             id: search_box
             size_hint_x: 50
 
-        Button:
-            text: "Test"
-            size_hint_x: 25
-            on_press: print(self.size)  # self = rightmost indented object
+        #Button:
+        #    text: "Test"
+        #    size_hint_x: 25
+        #    on_press: print(self.size)  # self = rightmost indented object
 
         Button:
             text: "Search"
@@ -28,4 +29,5 @@ AddLocationForm:
             on_press: app.current_location()  # app = subclass of App on which the run method was called
 
     ListView:
-        item_strings: ["Palo Alto, MX", "Palo Alto, US"]
+        id: search_results_list
+        item_strings: []
